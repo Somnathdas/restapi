@@ -1,0 +1,17 @@
+extends layout
+
+block content
+    .col-6
+        form(method='POST' action='/users/edit-admin-profile/')
+            div.body
+                <div class="form-error">#{message}</div>
+                <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="required" value="#{user.name}" />
+                </div>
+                <div class="form-group">
+                    <input type="text" name="username" class="form-control" placeholder="Your Username" required="required" value="#{user.username}" disabled/>
+                </div>               
+        
+            div.footer                                                              
+                button.btn.bg-olive.btn-block(type="submit") Update Profile 
+    </div>

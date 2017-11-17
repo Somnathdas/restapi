@@ -1,0 +1,32 @@
+extends layout
+
+block content
+    .row
+        .col-xs-10(style="min-width: 950px;")            
+            div
+                table.table.table-striped.table-bordered.table-responsive
+                    thead
+                    tr
+                        th Name
+                        th Username
+                        th Created
+                        th Updated
+                        th Actions
+                    tbody
+                        each val in userList             
+                            tr
+                                td= val.name
+                                td= val.username
+                                td= moment(val.createdAt).format('DD-MM-YYYY h:m a')
+                                td= moment(val.updatedAt).format('DD-MM-YYYY h:m a')
+                                td
+                                    a(href="/users/edit-user/"+val._id style="text-decoration: none;")
+                                        button.btn.btn-primary Edit 
+                                    | &nbsp;
+                                    a(href="/users/delete-user/"+val._id style="text-decoration: none;")
+                                        button.btn.btn-primary Delete 
+                                    //- | &nbsp;
+                                    //- a(href="/users/block-user/"+val._id style="text-decoration: none;")
+                                    //-     button.btn.btn-primary Block     
+           
+    </div>            

@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    h1 Welcome to Admin Panel...
+    h3 Hello #{userdetails.email}
+    p 
+    hr
+    .main.container
+        .row
+            .col-12
+                div(style="float: right") 
+                    a(href='/logout' style="color: #ff0063; text-decoration: none;") Logout
+       
+        .row
+            .col-4
+                img(src='http://162.243.110.92/soumya/primaryback/' + userdetails.picture , width="100%")
+            .col-4
+                div #{userdetails.name}

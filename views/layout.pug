@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title= title
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/AdminLTE.css')
+    link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css")
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js")
+  
+  body    
+      h1 Welcome to Admin Panel...  
+      p 
+      hr
+      .main.container
+      .row
+          .col-xs-10(style="min-width: 950px;")              
+              div.menu
+                if(url == '/users/dashboard' || url == '/users/checklogin')
+                  a(href='/users/dashboard', class='active' ) Home
+                else
+                  a(href='/users/dashboard') Home
+              div.menu
+                if(url == '/users/add')
+                  a(href='/users/add', class='active' ) Add User 
+                else
+                  a(href='/users/add') Add User                         
+              div.menu
+                if(url == '/users/editprofile')
+                  a(href='/users/editprofile', class='active' ) Edit Profile
+                else
+                  a(href='/users/editprofile') Edit Profile
+              div.menu
+                if(url == '/users/go-change-pass')
+                  a(href='/users/go-change-pass', class='active' ) Change Password
+                else
+                  a(href='/users/go-change-pass') Change Password
+              div.menu
+                  a(href='/users/logout') Logout 
+      
+      block content   

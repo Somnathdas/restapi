@@ -1,0 +1,49 @@
+extends layout
+
+block content
+    h1 Welcome to Admin Panel...    
+    p Registered Users are following.
+    hr
+    .main.container
+        .row
+            .col-12
+                div(style="float: right") 
+                    a(href='/users/logout' style="color: #ff0063; text-decoration: none;") Logout
+       
+        .row
+            .col-10
+                div(style="float: right")
+                    a(href='/users/add')
+                         button.btn.btn-primary Add
+        .row
+            .col-12
+                table.table.table-striped.table-bordered.table-responsive
+                    thead
+                    tr
+                        th Name
+                        th Username
+                        th Created
+                        th Updated
+                        th Actions
+                    tbody
+                        each val in userList             
+                            tr
+                                td= val.name
+                                td= val.username
+                                td= moment(val.createdAt).format('DD-MM-YYYY h:m a')
+                                td= moment(val.updatedAt).format('DD-MM-YYYY h:m a')
+                                td
+                                    a(href="/users/edit-user/"+val._id style="text-decoration: none;")
+                                        button.btn.btn-primary Edit 
+                                    | &nbsp;&nbsp;
+                                    a(href="/users/delete-user/"+val._id style="text-decoration: none;")
+                                        button.btn.btn-primary Delete 
+                                    | &nbsp;&nbsp;
+                                    a(href="/users/block-user/"+val._id style="text-decoration: none;")
+                                        button.btn.btn-primary Block
+        
+        
+        div.footer.row
+            .col-8 
+             div             
+                
